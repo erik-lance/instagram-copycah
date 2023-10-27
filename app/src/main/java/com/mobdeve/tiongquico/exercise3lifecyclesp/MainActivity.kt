@@ -32,6 +32,10 @@ class MainActivity : AppCompatActivity() {
         // Instantiation of the SharedPreferences
         this.prefs = getSharedPreferences("Exercise3LifecycleSP", MODE_PRIVATE)
 
+        // Set the default values of the SharedPreferences
+        this.prefs.edit().putInt("viewSelected", this.recyclerViewDefaultView).apply()
+        this.prefs.edit().putBoolean("hideLikeSelected", this.hideLikeButtons).apply()
+
         // Initialize the data, recyclerView and adapter
         this.data = DataHelper.initializeData()
         this.recyclerView = findViewById(R.id.recyclerView)
