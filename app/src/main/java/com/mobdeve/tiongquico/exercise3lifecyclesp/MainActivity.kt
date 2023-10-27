@@ -86,4 +86,26 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+    /*
+     * This method is called when the user returns to the MainActivity from the SettingsActivity.
+     * This is where the changes in the settings are applied.
+     * */
+    override fun onResume() {
+        super.onResume()
+
+        // Get the values of the SharedPreferences
+        val viewSelected = this.prefs.getInt("viewSelected", this.recyclerViewDefaultView)
+        val hideLikeSelected = this.prefs.getBoolean("hideLikeSelected", this.hideLikeButtons)
+
+        // Set the layout manager according to the view selected
+        this.recyclerView.layoutManager = getLayoutManager(viewSelected)
+
+        // Set the view type and hide like button settings
+        this.myAdapter.setViewType(viewSelected)
+        this.myAdapter.setHideLikeBtn(hideLikeSelected)
+
+        // Notify the adapter that the data has changed
+        this.myAdapter.notifyDataSetChanged()
+    }
 }
