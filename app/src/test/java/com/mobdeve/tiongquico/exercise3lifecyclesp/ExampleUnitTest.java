@@ -1,4 +1,4 @@
-package com.mobdeve.yourname.exercise3lifecyclesp;
+package com.mobdeve.tiongquico.exercise3lifecyclesp;
 
 import org.junit.Test;
 

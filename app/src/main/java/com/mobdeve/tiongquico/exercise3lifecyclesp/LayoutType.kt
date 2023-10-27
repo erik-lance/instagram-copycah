@@ -1,4 +1,4 @@
-package com.mobdeve.yourname.exercise3lifecyclesp
+package com.mobdeve.tiongquico.exercise3lifecyclesp
 
 enum class LayoutType {
     LINEAR_VIEW_TYPE, GRID_VIEW_TYPE

@@ -1,4 +1,4 @@
-package com.mobdeve.yourname.exercise3lifecyclesp
+package com.mobdeve.tiongquico.exercise3lifecyclesp
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
