@@ -1,6 +1,7 @@
 package com.mobdeve.tiongquico.exercise3lifecyclesp
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -13,6 +14,9 @@ class MainActivity : AppCompatActivity() {
     // Data for the application
     private lateinit var data: ArrayList<PostModel>
 
+    // Shared preferences
+    private lateinit var prefs: SharedPreferences
+
     // RecyclerView components
     private lateinit var recyclerView: RecyclerView
     private lateinit var myAdapter: MyAdapter
@@ -24,6 +28,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // Instantiation of the SharedPreferences
+        this.prefs = getSharedPreferences("Exercise3LifecycleSP", MODE_PRIVATE)
 
         // Initialize the data, recyclerView and adapter
         this.data = DataHelper.initializeData()
