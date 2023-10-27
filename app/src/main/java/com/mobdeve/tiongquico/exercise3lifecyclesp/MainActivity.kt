@@ -22,8 +22,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var myAdapter: MyAdapter
 
     // Indicators for what Layout should be used or if the like buttons should be hidden
-    private val recyclerViewDefaultView = LayoutType.LINEAR_VIEW_TYPE.ordinal // int of LayoutType.LINEAR_VIEW_TYPE (default) or LayoutType.GRID_VIEW_TYPE
-    private val hideLikeButtons = false // true = hide buttons; false = shown buttons (default)
+    private var recyclerViewDefaultView = LayoutType.LINEAR_VIEW_TYPE.ordinal // int of LayoutType.LINEAR_VIEW_TYPE (default) or LayoutType.GRID_VIEW_TYPE
+    private var hideLikeButtons = false // true = hide buttons; false = shown buttons (default)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +31,10 @@ class MainActivity : AppCompatActivity() {
 
         // Instantiation of the SharedPreferences
         this.prefs = getSharedPreferences("Exercise3LifecycleSP", MODE_PRIVATE)
+
+        // Set the default values of the indicators based on the values stored in the SharedPreferences
+        this.recyclerViewDefaultView = this.prefs.getInt("viewSelected", this.recyclerViewDefaultView)
+        this.hideLikeButtons = this.prefs.getBoolean("hideLikeSelected", this.hideLikeButtons)
 
         // Initialize the data, recyclerView and adapter
         this.data = DataHelper.initializeData()
@@ -103,5 +107,8 @@ class MainActivity : AppCompatActivity() {
 
         // Notify the adapter that the data has changed
         this.myAdapter.notifyDataSetChanged()
+
+        // Recycle the view
+        this.recyclerView.recycledViewPool.clear()
     }
 }
