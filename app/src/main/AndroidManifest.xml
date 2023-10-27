@@ -9,11 +9,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Exercise3LifecycleSp">
         <activity
-            android:name="com.mobdeve.tiongquico.exercise3lifecyclesp.SettingsActivity"
+            android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
             android:exported="false" />
         <activity
-            android:name="com.mobdeve.tiongquico.exercise3lifecyclesp.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

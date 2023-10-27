@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context="com.mobdeve.tiongquico.exercise3lifecyclesp.SettingsActivity">
+    tools:context=".SettingsActivity">
 
     <Switch
         android:id="@+id/viewSwitch"
