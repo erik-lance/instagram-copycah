@@ -27,6 +27,19 @@ class SettingsActivity : AppCompatActivity() {
         // Instantiation of the Switch views
         this.linearViewSwitch = findViewById(R.id.viewSwitch)
         this.hideLikeSwitch = findViewById(R.id.hideLikeSwitch)
+
+        // Set the switches to the values stored in the SharedPreferences
+        this.linearViewSwitch.isChecked = returnBoolean(this.prefs.getInt("viewSelected", this.viewSelected))
+        this.hideLikeSwitch.isChecked = this.prefs.getBoolean("hideLikeSelected", this.hideLikeSelected)
+
+        // Set the OnClickListeners for the switches
+        this.linearViewSwitch.setOnClickListener {
+            this.prefs.edit().putInt("viewSelected", returnInt(this.linearViewSwitch.isChecked)).apply()
+        }
+
+        this.hideLikeSwitch.setOnClickListener {
+            this.prefs.edit().putBoolean("hideLikeSelected", this.hideLikeSwitch.isChecked).apply()
+        }
     }
 
     /*
