@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.mobdeve.yourname.exercise3lifecyclesp'
+    namespace 'com.mobdeve.tiongquico.exercise3lifecyclesp'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.mobdeve.yourname.exercise3lifecyclesp"
+        applicationId "com.mobdeve.tiongquico.exercise3lifecyclesp"
         minSdk 24
         targetSdk 34
         versionCode 1
