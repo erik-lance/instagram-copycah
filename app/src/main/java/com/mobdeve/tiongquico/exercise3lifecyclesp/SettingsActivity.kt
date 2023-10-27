@@ -1,5 +1,6 @@
 package com.mobdeve.tiongquico.exercise3lifecyclesp
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Switch
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,9 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var linearViewSwitch: Switch
     private lateinit var hideLikeSwitch: Switch
 
+    // Shared preferences
+    private lateinit var prefs: SharedPreferences
+
     // Indicators for what Layout should be used or if the like buttons should be hidden
     private val viewSelected = LayoutType.LINEAR_VIEW_TYPE.ordinal // int of LayoutType.LINEAR_VIEW_TYPE (default) or LayoutType.GRID_VIEW_TYPE
     private val hideLikeSelected = false // true -> hidden buttons; false -> shown buttons (default)
@@ -16,6 +20,9 @@ class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
+
+        // Instantiation of the SharedPreferences
+        this.prefs = getSharedPreferences("Exercise3LifecycleSP", MODE_PRIVATE)
 
         // Instantiation of the Switch views
         this.linearViewSwitch = findViewById(R.id.viewSwitch)
